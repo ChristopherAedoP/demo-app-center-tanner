@@ -1,0 +1,34 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'demo_app_center_tanner' do
+  pod 'AppCenter/Crashes', '~> 1.12.0'
+  pod 'AppCenter/Analytics', '~> 1.12.0'
+  pod 'AppCenterReactNativeShared', '~> 1.11.0'
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for demo_app_center_tanner
+
+  
+
+  platform :ios, '9.0'
+  target 'demo_app_center_tannerTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'demo_app_center_tanner-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for demo_app_center_tanner-tvOS
+
+  target 'demo_app_center_tanner-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
