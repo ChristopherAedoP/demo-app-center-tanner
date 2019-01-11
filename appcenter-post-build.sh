@@ -46,9 +46,12 @@ if [[ -z "$APPCENTER_XCODE_PROJECT" ]]; then
 else
     echo "SELECTED XCODE PROJECT   => $APPCENTER_XCODE_PROJECT"
     echo "SELECTED XCODE SCHEME    => $APPCENTER_XCODE_SCHEME"
+
+
+    appcenter codepush release-react -a "$APP_NAME" -m --description "$COMMIT_MESSAGE" -d "$ENVIRONMENT" --token "$APP_CENTER_TOKEN" -t "$APP_CENTER_TARGET" 
 fi
 
-appcenter codepush release-react -a "$APP_NAME" -m --description "$COMMIT_MESSAGE" -d "$ENVIRONMENT" --token "$APP_CENTER_TOKEN" -t "$APP_CENTER_TARGET" 
+
 
 #curl \
 #   -F "status=2" \
