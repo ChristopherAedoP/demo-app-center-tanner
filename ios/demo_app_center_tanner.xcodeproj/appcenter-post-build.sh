@@ -2,10 +2,10 @@
 
 # Publish the changes using CodePush and deploy to HockeyApp
 
-ENVIRONMENT=Development
-APP_NAME=OrganizationName/MyApp-iOS
+# StagingENVIRONMENT=Development
+# APP_NAME=OrganizationName/MyApp-iOS
 #APP_PATH=myAppDebug.ipa
-APP_CENTER_TOKEN=""
+# APP_CENTER_TOKEN=""
 
 # HockeyApp-iOS-Dev
 #HOCKEY_APP_ID=""
