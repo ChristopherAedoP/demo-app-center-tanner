@@ -783,6 +783,7 @@
 				45913BBA01A40C092DE1F105 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				044BA1DC21ED16AE00FA59BC /* Run Script Build Number */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 			);
@@ -1302,6 +1303,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		044BA1DC21ED16AE00FA59BC /* Run Script Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#$SRCROOT/Build-Phases/xcode-build-bump.sh\n# xcode-build-bump.sh\n# @desc Auto-increment the build number every time the project is run. \n\necho '**************************/************************'\necho '🏁 START RUN SCRIPT AUTO-INCREMENT THE BUILD NUMBER'\n\necho '- TARGET_NAME : ' ${TARGET_NAME}\n\necho '- PROJECT_DIR : ' ${PROJECT_DIR}\n\necho '- APPCENTER_BUILD_ID : ' $APPCENTER_BUILD_ID \n\necho '- INFOPLIST_FILE : ' $INFOPLIST_FILE\n\necho '- INFOPLIST_PATH : ' $INFOPLIST_PATH\n\necho '- PATH :' ${PROJECT_DIR}/${INFOPLIST_FILE}\n\necho '✅ ¡'\n\nif [[ -z \"${APPCENTER_BUILD_ID}\" ]]; then\nAPPCENTER_BUILD_ID=1\necho 'set APPCENTER_BUILD_ID en 1'\nfi\n\n\nif [\"$TARGET_NAME\" == \"Tanner-Factoring\"]; then\nINFO_PLIST_FILE=${PROJECT_DIR}/${INFOPLIST_FILE}\n\nelse\nINFO_PLIST_FILE=$INFOPLIST_FILE\nfi\n\n\nif [ ! -e \"$INFO_PLIST_FILE\" ]; then\n\necho '- 🛑 NO EXITE Info.plist'\n\nelse\n\necho '- BUILD NUMBER : '\n\nplutil -p $INFO_PLIST_FILE | grep \"CFBundleVersion\"\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFO_PLIST_FILE\")\n\nbuildNumber=$(($buildNumber + $APPCENTER_BUILD_ID ))\n\necho '🔔 NEW BUILD_NUMBER : ' $buildNumber\n\nplutil -replace CFBundleVersion -string $buildNumber $INFO_PLIST_FILE\n\nplutil -p $INFO_PLIST_FILE | grep \"CFBundleVersion\"\n\n/usr/libexec/PlistBuddy -c \"Print\" $INFO_PLIST_FILE\n\nfi\n\necho '✅ ¡'\necho 'END SCRIPT PRE-ACTIONS  💪'\necho '**************************/************************'\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
