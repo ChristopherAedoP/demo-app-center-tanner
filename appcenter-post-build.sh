@@ -29,6 +29,6 @@ else
     echo "SELECTED XCODE SCHEME    => $APPCENTER_XCODE_SCHEME"
 
 
-    appcenter codepush release-react -a "$APP_NAME" -m --description "$COMMIT_MESSAGE" -d "$ENVIRONMENT" --token "$APP_CENTER_TOKEN" -t "$APP_CENTER_TARGET"  -m --noDuplicateReleaseError
+    appcenter codepush release-react -a "$APP_NAME" -m --description "$COMMIT_MESSAGE" -d "$ENVIRONMENT" --token "$APP_CENTER_TOKEN" -t "$APP_CENTER_TARGET"  -m --disable-duplicate-release-error
 fi
 
